@@ -1,0 +1,8 @@
+{
+	"ingestArea": "/path/to/ingestArea",
+  "daweb": {
+    "url": "http://daweb.url/daweb3",
+    "user": "user",
+    "password": "password"
+  }
+}
