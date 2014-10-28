@@ -13,6 +13,7 @@
   ],
   "author": "Stephan Uhle",
   "dependencies": {
+    "busboy": "^0.2.9",
     "express": "^4.10.0"
   }
 }
