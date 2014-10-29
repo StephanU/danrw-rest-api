@@ -6,6 +6,7 @@ var express = require('express'),
 app.post('/api/v1/ingest', oaisHandler.handleIngest);
 app.get('/api/v1/ingest/status', oaisHandler.handleIngestStatus);
 app.get('/api/v1/order', oaisHandler.handleOrder);
+app.get('/api/v1/order/status', oaisHandler.handleOrderStatus);
 
 // start the server
 var server = app.listen(3000, function () {
