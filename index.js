@@ -1,6 +1,6 @@
 var express = require('express'),
 	app = express(),
-	oaisHandler = require('./lib/oaisHandler');
+	oaisHandler = require('./lib/danrwOaisHandler');
 
 // add api handler
 app.post('/api/v1/ingest', oaisHandler.handleIngest);
