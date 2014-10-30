@@ -23,8 +23,12 @@ The following prefix has to be prepended to all api urls.
 /api/v1
 ```
 
-Thus if starting the node process locally the final url would be ```http://localhost:3000/api/v1/<api path>```.
-  
+Thus if starting the node process locally the final url would be:
+
+```
+http://localhost:3000/api/v1/<api path>
+```
+
 ### Ingest data
 
 ```
