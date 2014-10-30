@@ -1,7 +1,34 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [danrw-rest-api](#danrw-rest-api)
+    - [API prefix](#api-prefix)
+    - [Ingest data](#ingest-data)
+      - [Response](#response)
+    - [Get status of specific ingest](#get-status-of-specific-ingest)
+      - [Parameters](#parameters)
+      - [Response](#response-1)
+    - [Get list of all AIP](#get-list-of-all-aip)
+      - [Response](#response-2)
+    - [Order the dissemination of information](#order-the-dissemination-of-information)
+      - [Parameters](#parameters-1)
+      - [Response](#response-3)
+    - [Get status of ordered dissemination of information](#get-status-of-ordered-dissemination-of-information)
+      - [Parameters](#parameters-2)
+      - [Response](#response-4)
+    - [Disseminate information](#disseminate-information)
+      - [Parameters](#parameters-3)
+      - [Response](#response-5)
+        - [On success](#on-success)
+        - [On error](#on-error)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 danrw-rest-api
 ==============
 
-A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS (Open Archival Information System) workflow.
+A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow. It has been tested using version "Oberntudorf 0.6.5-p1" of DA-NRW (see https://github.com/da-nrw).
 
 
 ### API prefix
