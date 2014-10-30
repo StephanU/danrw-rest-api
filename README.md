@@ -1,42 +1,30 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow. It has been tested using version "Oberntudorf 0.6.5-p1" of DA-NRW.
 
-- [danrw-rest-api](#danrw-rest-api)
-    - [API prefix](#api-prefix)
-    - [Ingest data](#ingest-data)
-      - [Response](#response)
-    - [Get status of specific ingest](#get-status-of-specific-ingest)
-      - [Parameters](#parameters)
-      - [Response](#response-1)
-    - [Get list of all AIP](#get-list-of-all-aip)
-      - [Response](#response-2)
-    - [Order the dissemination of information](#order-the-dissemination-of-information)
-      - [Parameters](#parameters-1)
-      - [Response](#response-3)
-    - [Get status of ordered dissemination of information](#get-status-of-ordered-dissemination-of-information)
-      - [Parameters](#parameters-2)
-      - [Response](#response-4)
-    - [Disseminate information](#disseminate-information)
-      - [Parameters](#parameters-3)
-      - [Response](#response-5)
-        - [On success](#on-success)
-        - [On error](#on-error)
+### Requirements
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+* node.js (http://nodejs.org/)
+* DA-NRW (https://github.com/da-nrw)
 
-danrw-rest-api
-==============
+### Installation
 
-A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow. It has been tested using version "Oberntudorf 0.6.5-p1" of DA-NRW (see https://github.com/da-nrw).
-
+```bash
+$ git clone https://github.com/StephanU/danrw-rest-api.git
+$ cd danrw-rest-api
+$ npm install
+$ cp config.json.sample config.json
+$ vi config.json # set configuration parameters according to the da-nrw installation
+$ node index.js
+```
 
 ### API prefix
-
+The following prefix has to be prepended to all api urls.
+  
 ```
 /api/v1
 ```
 
+Thus if starting the node process locally the final url would be ```http://localhost:3000/api/v1/<api path>```.
+  
 ### Ingest data
 
 ```
@@ -49,6 +37,11 @@ The file to ingest needs to be POSTed using the Content-Type multipart/form-data
 
 ```
 Status: 200 OK
+```
+
+#### Example URL
+```
+http://localhost:3000/api/v1/ingest
 ```
 
 ### Get status of specific ingest
@@ -82,6 +75,11 @@ Status: 200 OK
         }
     ]
 }
+```
+
+#### Example URL
+```
+http://localhost:3000/api/v1/ingest/status?identifier=1-20141028174
 ```
 
 ### Get list of all AIP
@@ -150,6 +148,11 @@ Status: 200 OK
 }
 ```
 
+#### Example URL
+```
+http://localhost:3000/api/v1/ingest/status
+```
+
 ### Order the dissemination of information
 
 ```
@@ -172,6 +175,11 @@ Status: 200 OK
   "success": true,
   "msg": "Objekt urn:nbn:de:danrw-1-20141028174 erfolgreich angefordert."
 }
+```
+
+#### Example URL
+```
+http://localhost:3000/api/v1/order?identifier=1-20141028174
 ```
 
 ### Get status of ordered dissemination of information
@@ -204,6 +212,11 @@ Status: 200 OK
 ]
 ```
 
+#### Example URL
+```
+http://localhost:3000/api/v1/order/status?identifier=1-20141028174
+```
+
 ### Disseminate information
 Binary download of information whose dissemination was previously ordered. The downloaed file is a gzipped tar archive (.tgz). The filename is given in the response header parameter 'Content-Disposition'.
 
@@ -227,4 +240,31 @@ Status: 200 OK
 ##### On error
 ```
 Status: 404 Not Found
+```
+
+#### Example URL
+```
+http://localhost:3000/api/v1/disseminate?identifier=1-20141028174
+```
+
+### Query information
+Query the Fedora Commons repository of the DA-NRW. This is actually a proxy to the Fedora Commons installation.
+
+```
+GET /query
+```
+
+#### Parameters
+
+see https://wiki.duraspace.org/display/FEDORA35/REST+API
+
+#### Response
+
+```
+Status: 200 OK
+```
+
+#### Example URL
+```
+http://localhost:3000/api/v1/query/objects/danrw:1-2014101368?format=xml
 ```
