@@ -5,5 +5,8 @@
     "url": "http://daweb.url/daweb3",
     "user": "user",
     "password": "password"
+  },
+  "fedora": {
+    "url": "http://fedora.url/fedora"
   }
 }
