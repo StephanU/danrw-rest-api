@@ -1,7 +1,7 @@
 {
-  "name": "da-nrw-rest-api",
+  "name": "danrw-rest-api",
   "version": "0.0.1",
-  "description": "A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS (Open Archival Information System) workflow.",
+  "description": "A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,13 @@
     "api"
   ],
   "author": "Stephan Uhle",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/stephanu/danrw-rest-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stephanu/danrw-rest-api/issues"
+  },
   "dependencies": {
     "busboy": "^0.2.9",
     "express": "^4.10.0",
