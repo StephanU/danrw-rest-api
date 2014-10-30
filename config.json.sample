@@ -1,6 +1,6 @@
 {
   "ingestArea": "/path/to/ingestArea",
-  "userArea": "/path/to/userArea"
+  "userArea": "/path/to/userArea",
   "daweb": {
     "url": "http://daweb.url/daweb3",
     "user": "user",
