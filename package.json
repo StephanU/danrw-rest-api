@@ -20,6 +20,7 @@
     "url": "https://github.com/stephanu/danrw-rest-api/issues"
   },
   "dependencies": {
+    "basic-auth": "^1.0.0",
     "busboy": "^0.2.9",
     "express": "^4.10.0",
     "request": "^2.47.0"

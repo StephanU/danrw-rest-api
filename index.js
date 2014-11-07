@@ -1,6 +1,23 @@
 var express = require('express'),
   app = express(),
-  oaisHandler = require('./lib/danrwOaisHandler');
+  oaisHandler = require('./lib/danrwOaisHandler'),
+  basicAuth = require('basic-auth');
+
+
+// add basic authentication handler
+app.use(function (req, res, next) {
+  var user = basicAuth(req);
+
+  if (!user || !user.name || !user.pass) {
+    res.writeHead(401);
+    res.end();
+  } else {
+    // for now, the authentication is done by the specific danrw urls
+    // Note: for the ingest and dissemination api pathes only the existence of the user folder is checked,
+    // no authentication is done for these two urls
+    next();
+  };
+})
 
 // add api handler
 app.post('/api/v1/ingest', oaisHandler.handleIngest);
