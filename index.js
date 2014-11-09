@@ -9,15 +9,35 @@ app.use(function (req, res, next) {
   var user = basicAuth(req);
 
   if (!user || !user.name || !user.pass) {
-    res.writeHead(401);
-    res.end();
+    if ('OPTIONS' !== req.method) {
+      res.sendStatus(401);
+      res.end();
+    } else {
+      next();
+    }
   } else {
     // for now, the authentication is done by the specific danrw urls
     // Note: for the ingest and dissemination api pathes only the existence of the user folder is checked,
     // no authentication is done for these two urls
     next();
-  };
-})
+  }
+});
+
+// allow CORS
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length');
+
+  // intercept OPTIONS method
+  if ('OPTIONS' === req.method) {
+    res.sendStatus(200);
+    res.end();
+  }
+  else {
+    next();
+  }
+});
 
 // add api handler
 app.post('/api/v1/ingest', oaisHandler.handleIngest);
