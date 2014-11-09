@@ -11,7 +11,7 @@ app.use(function (req, res, next) {
   if (!user || !user.name || !user.pass) {
     if ('OPTIONS' !== req.method) {
       res.sendStatus(401);
-      res.end();
+      res.end();  
     } else {
       next();
     }
