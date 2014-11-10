@@ -10,7 +10,9 @@ app.use(function (req, res, next) {
 
   if (!user || !user.name || !user.pass) {
     if ('OPTIONS' !== req.method) {
-      res.sendStatus(401);
+      res.writeHead(401, {
+        'WWW-Authenticate': 'Basic realm="Secure Area"'
+      });
       res.end();  
     } else {
       next();
@@ -41,10 +43,12 @@ app.use(function (req, res, next) {
 
 // add api handler
 app.post('/api/v1/ingest', oaisHandler.handleIngest);
-app.get('/api/v1/ingest/status', oaisHandler.handleIngestStatus);
-app.get('/api/v1/order', oaisHandler.handleOrder);
-app.get('/api/v1/order/status', oaisHandler.handleOrderStatus);
-app.get('/api/v1/disseminate', oaisHandler.handleDissemination);
+app.get('/api/v1/ingest/:id', oaisHandler.handleIngestStatus);
+app.get('/api/v1/archive', oaisHandler.handleArchive);
+app.post('/api/v1/order/:id', oaisHandler.handleOrder);
+app.get('/api/v1/order/:id', oaisHandler.handleOrderStatus);
+app.get('/api/v1/disseminate', oaisHandler.handleDisseminationList);
+app.get('/api/v1/disseminate/:id', oaisHandler.handleDissemination);
 app.get('/api/v1/query*', oaisHandler.handleQuery);
 
 // start the server
