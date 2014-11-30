@@ -1,4 +1,4 @@
-A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow. It has been tested using version "Oberntudorf 0.6.5-p1" of DA-NRW.
+A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to conform to the OAIS workflow. It has been tested using version "Oberntudorf 0.6.5-p1" of DA-NRW.
 
 ### Requirements
 

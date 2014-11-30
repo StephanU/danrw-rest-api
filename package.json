@@ -1,7 +1,7 @@
 {
   "name": "danrw-rest-api",
   "version": "0.0.1",
-  "description": "A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to be conforming to the OAIS workflow.",
+  "description": "A RESTful API to a DA-NRW (Digitales Archiv - Nordrhein-Westfalen) instance. The API intends to conform to the OAIS workflow.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,7 @@
     "basic-auth": "^1.0.0",
     "busboy": "^0.2.9",
     "express": "^4.10.0",
-    "request": "^2.47.0"
+    "request": "^2.47.0",
+    "xml2js": "^0.4.4"
   }
 }
