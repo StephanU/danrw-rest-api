@@ -11,7 +11,7 @@ app.use(function (req, res, next) {
   if (!user || !user.name || !user.pass) {
     if ('OPTIONS' !== req.method) {
       res.writeHead(401, {
-        'WWW-Authenticate': 'Basic realm="Secure Area"'
+        'WWW-Authenticate': 'Basic realm="DA-NRW needs authentication"'
       });
       res.end();  
     } else {
